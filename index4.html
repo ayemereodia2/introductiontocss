@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: brown;
+        }
+        span {
+            color: black;
+        }
+        /* demo of cascading nature of the styling rule
+        element with equal specifity is determined by the order
+        in which they appear. 
+        */
+        h1 {
+            color: red;
+        }
+        h1 {
+            color: blue;
+        }
+
+        /* class selectors are higher in order of specificity, while
+            element selectors are lower */
+        .specific {
+            color: green;
+        }
+
+        h2 {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <h1>This is my heading.</h1>
+    <h2 class="specific">This another header.</h2> -->
+    <p>Lorem ipsum dolor sit,
+        amet consectetur adipisicing
+        elit. Perspiciatis reiciendis
+        at dolores hic nihil ipsum,
+        aspernatur vel voluptate beatae
+        sequi tempora odio,
+        quo expedita doloremque
+         ut eius vero voluptates <span>consequuntur.</span></p>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block-box {
+            display: block;
+            width:100%;
+            padding: 10px;
+            margin: 5px ;
+            background-color:lightblue;
+        }
+
+        a {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .examplepara {
+            display: block;
+            padding: 15px;
+            background-color: lightgreen;
+        }
+
+        .inline-box {
+            display: inline;
+            padding: 5px;
+            background-color: yellow;
+        }
+
+        .inline-block {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            margin-right:5px;
+            background-color:coral;
+        }
+
+        .block-btn {
+            display: block;
+            padding: 10px;
+            background-color:purple;
+            color: white;
+            text-align:center;
+        }
+        .standardblock {
+            width: 350px;
+            height: 150px;
+            padding: 25px;
+            margin: 10px;
+            border: 5px solid black;
+            background-color: greenyellow;
+        }
+        .alternateblock {
+            box-sizing: border-box;
+        }
+        .alternateblock {
+            width: 350px;;
+            height: 150px;
+            padding: 25px;
+            border: 5px orange solid;
+            margin: 10px;
+            background-color:blue
+        }
+    </style>
+</head>
+<body>
+    <p>Block boxes</p>
+    <div class="standardblock"> this is a standard Block</div>
+    <div class="alternateblock">Block 2</div>
+    <p>Inline block</p>
+    <a href="#">Link 1</a>
+    <a href="#">Link 1</a>
+
+    <p class="examplepara"> This is an <span class="inline-box"> inline-block</span> inside a block element</p>
+
+    <p>Inline Block Example</p>
+    <span class="inline-block">inline block 1</span>
+    <span class="inline-block">inline block 2</span>
+
+    <p>Customizing Display Types</p>
+
+    <span class="block-btn"> I am a block button</span>
+</body>
+</html>

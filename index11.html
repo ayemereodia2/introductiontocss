@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.container {
+    width: 80%; /* This will center the content with margins */
+    margin: 0 auto;
+}
+
+.header {
+    width: 100%; /* This will take the full width of the container */
+    background-color: lightblue;
+}
+
+.header {
+    width: 100vw; /* This will take the full width of the viewport */
+    position: relative; /* To position it properly within the flow */
+    left: 50%; /* Move it to the center of the viewport */
+    margin-left: -50vw; /* Adjust for the left offset */
+    background-color: lightblue;
+}
+
+.content {
+    width: 100%; /* This will take the full width of the container as well */
+    background-color: lightgreen;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">Full Width Header</header>
+        <div class="content">Centered Content</div>
+    </div>
+    
+</body>
+</html>
