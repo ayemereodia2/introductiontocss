@@ -1,52 +1,55 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Flexbox align 0 — starting code</title>
-    <style>
-      html {
-        font-family: sans-serif;
-      }
-
-      body {
-        width: 70%;
-        max-width: 960px;
-        margin: 20px auto;
-      }
-
-      button {
-        font-size: 18px;
-        line-height: 1.5;
-        width: 15%;
-      }
-
-      button:first-child {
-        background-color: red;
-        align-self:self-end;
-        order: 1;
-      }
-
-      div {
-        height: 100px;
-        border: 1px solid black;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-      }
-
-      /* Add your flexbox CSS below here */
-
-      
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="calculator.css" />
+    <title>Calculator</title>
   </head>
   <body>
-    <div>
-      <button>Smile</button>
-      <button>Laugh</button>
-      <button>Wink</button>
-      <button>Shrug</button>
-      <button>Blush</button>
+    <section>
+      <input type="text" id="input-box"/>
+      <main>
+        <div class="first-container">
+          <!-- container layout for row buttons -->
+          <button id="cancel">C</button>
+
+          <button>+/-</button>
+
+          <button>%</button>
+
+          <button id="seven">7</button>
+          <button id="eight">8</button>
+
+          <button id="nine">9</button>
+
+          <button id="four">4</button>
+
+          <button id="five">5</button>
+          <button id="six">6</button>
+
+          <button id="one">1</button>
+
+          <button id="two">2</button>
+
+          <button id="three">3</button>
+        </div>
+        <div class="second-container">
+          <!-- container layout for column buttons -->
+          <button id="divide">/</button>
+          <button id="multiply">x</button>
+
+          <button id="subtract">-</button>
+
+          <button id="add">+</button>
+        </div>
+      </main>
+      <div class="third-container">
+        <button id="zero">0</button>
+        <button id="point">.</button>
+        <button id="equal">=</button>
     </div>
+    </section>
   </body>
+  <script src="calculator.js"></script>
 </html>

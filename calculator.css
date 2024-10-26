@@ -1,0 +1,98 @@
+/* universal values */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* variables */
+
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    width: 18.75rem;
+    background-color: black;
+    color: white;
+    height: 35.25rem;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.first-container {
+    background-color: inherit;
+}
+.first-container>button:nth-of-type(-n+3) {
+    background-color: gray;
+}
+.second-container {
+    background-color: inherit;
+}
+.second-container>button {
+    background-color: orange;
+    border-color: orange;
+    border-width: 0;
+}
+
+.third-container {
+    display: flex;
+    flex-direction: row;
+    background-color: inherit;
+    justify-content: space-between;
+}
+
+.third-container > button:nth-of-type(-n+2){
+    margin-left: -0.4375rem;
+    text-align: center;
+    padding-bottom: 0.625rem;
+}
+
+.third-container > button:nth-of-type(-n+1){
+    width: 8.75rem;
+    text-align: left;
+    padding-left: 1.4375rem;
+    padding-top: 0.3125rem;
+    margin-left: 0.3125rem;
+}
+
+.third-container > button:nth-of-type(3){
+    background-color: orange;
+    margin-right: 0.6rem;
+}
+
+
+button {
+ width: 3.75rem;
+ height: 3.75rem;
+ border-radius: 1.875rem;
+ color: inherit;
+ background-color: rgb(44, 43, 43);
+ text-align: center;
+ margin: 5px;
+ font-weight: bold;
+ font-size: 2rem;
+ border-width: 0;
+}
+
+input {
+    height: 12.5rem;
+    font-size: 3rem;
+    font-weight: normal;
+    color: inherit;
+    text-align:right;
+    background-color: inherit;
+    padding-top: 10rem;
+    border-width: 0;
+    margin-right: 1.7rem;
+}
