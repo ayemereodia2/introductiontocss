@@ -1,5 +1,7 @@
 const numbers = [];
-
+/*
+TODO: add funtions for handling operations.
+*/
 const processNumber = (value) => {
   const inputBox = document.querySelector("#input-box");
   if(numbers.length == 0 && value == "0")
