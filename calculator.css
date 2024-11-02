@@ -52,7 +52,7 @@ main {
     display: flex;
     flex-direction: row;
     background-color: inherit;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .third-container > button:nth-of-type(-n+2){
