@@ -1,125 +1,43 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>CSS Grid starting point</title>
-    <style>
-      body {
-        width: 90%;
-        max-width: 900px;
-        margin: 2em auto;
-        font: 0.9em/1.2 Arial, Helvetica, sans-serif;
-      }
-
-      .container {
-        display: grid;
-        /* grid-template-columns: 200px 200px 200px; */
-        /* grid-template-columns: 3fr 1fr 1fr; */
-        /* column-gap: 20px;
-            row-gap: 20px; */
-        grid-template-columns: 200px 200px 200px;
-        grid-template-rows: 100px 100px;
-        gap: 20px;
-        /* grid-auto-rows: 100px; */
-      }
-
-      .container > div {
-        border-radius: 5px;
-        padding: 10px;
-        background-color: rgb(207, 232, 220);
-        border: 2px solid rgb(79, 185, 227);
-      }
-      .explicit-grid {
-        display: grid;
-        grid-template-columns: 100px 100px 100px;
-        grid-template-rows: 120px 120px;
-        gap: 10px;
-      }
-      .item {
-        background-color: #d4edda;
-        text-align: center;
-        padding: 10px;
-        font-size: 1.2em;
-      }
-
-      .implicit-grid {
-        display: grid;
-        grid-template-columns: 100px 100px minmax(100px, auto);
-        grid-template-rows: 120px;
-        grid-auto-rows: 120px;
-        grid-auto-columns: 300px;
-        gap:20px;
-      }
-      .itemx {
-        background-color: brown;
-        text-align: center;
-        padding: 10px;
-        font-size: 1.2em;
-      }
-
-     .itemx3 {
-        background-color: green;
-        text-align: center;
-        padding: 10px;
-        font-size: 1.2em;
-        grid-column: 3;
-        grid-row: 1 / 3 ;
-      }
-      .itemx7 {
-        background-color: purple;
-        text-align: center;
-        padding: 10px;
-        font-size: 1.2em;
-        grid-column: 1 / 4;
-        grid-row: 3 ;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="guess.css" />
+    <title>Guess</title>
   </head>
-
   <body>
-    <h1>Simple grid example</h1>
-
-    <!-- <div class="container">
-        <div>One</div>
-        <div>Two</div>
-        <div>Three</div>
-        <div>Four</div>
-        <div>Five</div>
-        <div>Six</div>
-        <div>Seven</div>
+    <div class="main">
+      <div id="loading-view" class="loading">
+        <p id="loader-message">Loading...</p>
+      </div>
+      <div class="main-container" id="main-container-view">
+        <div class="main-heading">
+          <p id="main-heading-question">Pick the odd one out</p>
+        </div>
+        <div class="answer-options">
+          <div class="option-one">
+            <p id="q1">Option 1</p>
+            <div class="circle-select" id="select-one"></div>
+          </div>
+          <div class="option-two">
+            <p id="q2">Option 2</p>
+            <div class="circle-select" id="select-two"></div>
+          </div>
+          <div class="option-three">
+            <p id="q3">Option 3</p>
+            <div class="circle-select" id="select-three"></div>
+          </div>
+          <div class="option-four">
+            <p id="q4">Option 4</p>
+            <div class="circle-select" id="select-four"></div>
+          </div>
+        </div>
+        <div>
+          <p>Score:00</p>
+        </div>
+      </div>
     </div>
-    <div>Eight</div> -->
-
-    <!-- explicit-grid allows you to explicitly specify the colums and grid you need in a grid, such that when another content is added, its placed in a new row unsized. -->
-    <p>Explicit Grid</p>
-    <div class="explicit-grid">
-      <div class="item">Item 1</div>
-      <div class="item">Item 2</div>
-      <div class="item">Item 3</div>
-      <div class="item">Item 4</div>
-      <div class="item">Item 5</div>
-      <div class="item">Item 6</div>
-      <div class="item">Seven</div>
-      <!-- item Seven appears in a new row with no sizing because grid is explicitly 3x2 -->
-    </div>
-    <br>
-    <br>
-
-    <!-- Implicit Grid allows you to turn an explicit grid
-    into an explicit grid by taking care of any addition layout
-    content that might be added, and this is done by 
-    specifying the grid-auto-row and grid-auto-column  -->
-
-    <p>Implicit Grid</p>
-    <div class="implicit-grid">
-      <div class="itemx">Item 1</div>
-      <div class="itemx">Item 2</div>
-      <div class="itemx3">Item 3</div>
-      <div class="itemx">Item 4</div>
-      <div class="itemx">Item 6</div>
-      <div class="itemx7">Item 7</div>
-    </div>
-
   </body>
+  <script src="guess.js"></script>
 </html>
