@@ -5,6 +5,7 @@ const selectState = {
     answerFour: false,
 };
 
+
 // Function to fetch trivia questions with dynamic parameters
 async function fetchTriviaQuestions(amount, category, difficulty, type) {
     // Base API URL
@@ -25,10 +26,11 @@ async function fetchTriviaQuestions(amount, category, difficulty, type) {
     // Combine base URL with query parameters
     const apiUrl = `${baseUrl}?${params.toString()}`;
     console.log(apiUrl);
+
     try {
         // Fetch data from the API
         loadingView.style.display = "block";
-        const response = await fetch(apiUrl);
+        const response = await fetch("questions.json");
 
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
@@ -48,62 +50,123 @@ async function fetchTriviaQuestions(amount, category, difficulty, type) {
 
         // Parse and log the response JSON
         const data = await response.json();
-        console.log("Trivia Questions:", data);
+        return data.results;
+
+        console.log("Trivia Questions:", questionCollection);
     } catch (error) {
         loaderMessage.innerHTML = "Failed to load quiz. Please try again.";
         console.error("Failed to fetch trivia questions:", error);
     }
 }
 
+function enableNextButton(){
+    const nextButton  = document.querySelector("#next-button")
+    nextButton.disabled = false;
+    nextButton.style.backgroundColor = "aquamarine";
+}
 
-function gameLoaded() {
-    fetchTriviaQuestions(20, 9, "easy", "multiple");
-    const options = {
-        optionOne: document.querySelector("#select-one"),
-        optionTwo: document.querySelector("#select-two"),
-        optionThree: document.querySelector("#select-three"),
-        optionFour: document.querySelector("#select-four"),
-    };
+function disableNextButton(){
+    const nextButton  = document.querySelector("#next-button")
+    nextButton.disabled = true;
+    nextButton.style.backgroundColor = "rgb(216, 220, 219)";
+}
 
-    // Array to map state keys to elements
-    const stateKeys = Object.keys(selectState);
-    const elements = Object.values(options);
+let currentQuestionIndex = 0;
+let score = 0;
+async function gameLoaded() {
 
-    // Reusable function to reset all options
-    function resetOptions() {
-        elements.forEach((el) => {
-            el.style.backgroundColor = "rgb(242, 242, 245)";
-        });
-    }
+    const nextButton  = document.querySelector("#next-button")
 
-    // Reusable function to handle option selection
-    function handleOptionClick(optionIndex) {
-        const currentKey = stateKeys[optionIndex];
-        if (selectState[currentKey]) {
+    nextButton.addEventListener("click", ()=>{
+        if (currentQuestionIndex < questionCollection.length) {
+            currentQuestionIndex++;
+            updateQuestionView();
             resetOptions();
-            selectState[currentKey] = false;
         } else {
-            resetOptions();
-            elements[optionIndex].style.backgroundColor = "rgb(152, 5, 5)";
+            alert(`Quiz complete! You scored: ${score}/20` )
+            console.log("Quiz finished!");
+        }
+    });
 
-            // Update selectState
-            stateKeys.forEach((key, index) => {
-                selectState[key] = index === optionIndex;
+    const questionCollection = await fetchTriviaQuestions(20, 9, "easy", "multiple");
+        const options = {
+            optionOne: document.querySelector("#select-one"),
+            optionTwo: document.querySelector("#select-two"),
+            optionThree: document.querySelector("#select-three"),
+            optionFour: document.querySelector("#select-four"),
+        };
+    
+        // Array to map state keys to elements
+        const stateKeys = Object.keys(selectState);
+        const elements = Object.values(options);
+    
+        // Reusable function to reset all options
+        function resetOptions() {
+            elements.forEach((el) => {
+                el.style.backgroundColor = "rgb(242, 242, 245)";
             });
         }
+
+        function selectedOption(optionIndex){
+            const questionElement = document.querySelector(`#q${optionIndex + 1}`);
+            const scoreLabel = document.querySelector("#score-p");
+
+            console.log(questionElement.textContent);
+            let correctAnswer = questionCollection[currentQuestionIndex]["correct_answer"];
+            if(correctAnswer === questionElement.textContent)
+            {
+                score++;
+                console.log(score);
+            }
+        }
+    
+        // Reusable function to handle option selection
+        function handleOptionClick(optionIndex) {
+            const currentKey = stateKeys[optionIndex];
+            if (selectState[currentKey]) {
+                resetOptions();
+                selectState[currentKey] = false;
+                disableNextButton();
+            } else {
+                enableNextButton();
+                resetOptions();
+                elements[optionIndex].style.backgroundColor = "rgb(152, 5, 5)";
+    
+                // Update selectState
+                stateKeys.forEach((key, index) => {
+                    selectState[key] = index === optionIndex;
+                });
+                
+            }
+
+            selectedOption(optionIndex)
+        }
+
+          // Add event listeners dynamically
+          elements.forEach((element, index) => {
+            element.addEventListener("click", () => handleOptionClick(index));
+        });
+
+        function updateQuestionView(){
+            console.log("updating view");
+        // Set question text dynamically
+        
+        let questionTitle = questionCollection[currentQuestionIndex]["question"];
+        document.querySelector("#main-heading-question").innerHTML = questionTitle;
+    
+        let questions = questionCollection[currentQuestionIndex]["incorrect_answers"];
+        let correctAnswer = questionCollection[currentQuestionIndex]["correct_answer"];
+    
+        questions.push(correctAnswer);
+    
+        questions.forEach((question, index) => {
+            const questionElement = document.querySelector(`#q${index + 1}`);
+            questionElement.innerHTML = question;
+        });
+        disableNextButton()
     }
-
-    // Add event listeners dynamically
-    elements.forEach((element, index) => {
-        element.addEventListener("click", () => handleOptionClick(index));
-    });
-
-    // Set question text dynamically
-    const questions = ["DOG", "FISH", "HEN", "BIKE"];
-    questions.forEach((question, index) => {
-        const questionElement = document.querySelector(`#q${index + 1}`);
-        questionElement.innerHTML = question;
-    });
+    updateQuestionView();
+    disableNextButton();
 }
 
 document.addEventListener("DOMContentLoaded", gameLoaded)
