@@ -1,6 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .main-container {
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .top-view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      select {
+        width: 30px;
+      }
+      /* Media query for smaller screens */
+      @media screen and (max-width: 768px) {
+        .photo-card {
+          flex: 1 1 calc(50% - 10px); /* 2 items per row */
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .photo-card {
+          flex: 1 1 100%; /* 1 item per row */
+        }
+      }
+
+      @media(min-resolution: 2dppx){
+        body {
+            font-size: 16px;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="top-view">
+        <h1>Cities To Visit</h1>
+        <div class="control-view">
+          <button id="forward-btn-view"><</button>
+          <select name="" id="select-options"></select>
+          <button id="backward-btn-view">></button>
+        </div>
+      </div>
+      <div id="photo-roll" class="bottom-view"></div>
+    </main>
+  </body>
+  <script src="gallery.js"></script>
+</html>
+
+<!-- 
+Responsive Design using Media Queries
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Grid Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .box {
+      background-color: #f4f4f4;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ddd;
+      font-size: 18px;
+    }
+
+    @media (max-width: 1200px) {
+      .container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Responsive Grid Layout</h1>
+  </header>
+
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+    <div class="box">Box 6</div>
+    <div class="box">Box 7</div>
+    <div class="box">Box 8</div>
+  </div>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       body {
@@ -53,4 +201,4 @@
       <div class="box">6</div>
     </div>
   </body>
-</html>
+</html> -->
