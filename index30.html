@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="guess.css" />
+    <title>Quiz Game</title>
+  </head>
+  <body>
+    <div class="main">
+      <div id="loading-view" class="loading">
+        <p id="loader-message">Loading...</p>
+      </div>
+      <div class="main-container" id="main-container-view">
+        <div class="main-heading">
+          <p id="main-heading-question">Pick the odd one out</p>
+        </div>
+        <div class="answer-options">
+          <div class="option-one">
+            <p id="q1">Option 1</p>
+            <div class="circle-select" id="select-one"></div>
+          </div>
+          <div class="option-two">
+            <p id="q2">Option 2</p>
+            <div class="circle-select" id="select-two"></div>
+          </div>
+          <div class="option-three">
+            <p id="q3">Option 3</p>
+            <div class="circle-select" id="select-three"></div>
+          </div>
+          <div class="option-four">
+            <p id="q4">Option 4</p>
+            <div class="circle-select" id="select-four"></div>
+          </div>
+        </div>
+        <!-- <div class="score-board">
+          Score:<p id="score-p" style="display: inline;">00</p>
+        </div> -->
+        <div class="button-container">
+            <button id="next-button">Next</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="guess.js"></script>
+</html>

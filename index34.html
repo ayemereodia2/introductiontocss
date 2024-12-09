@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Counter Element</title>
+    <style>
+        .neat-counter {
+            background-color: lightgreen;
+            color: antiquewhite;
+            width: 300px;
+            height: 150px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        my-counter {
+            position: absolute;
+            left: 120px;
+            top: 65px;
+            font-size: 2em;
+            font-weight: bold;
+            background-color: lightgreen;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Custom Counter Element</h1>
+    <p>Click on the counter below to increase its value:</p>
+
+    <!-- Custom Counter Element -->
+     <div class="neat-counter">
+        <my-counter>75</my-counter>
+     </div>
+    
+</body>
+<script>
+    class Counter extends HTMLElement {
+    #xValue = 0;
+    constructor(){
+        super()
+        this.onclick = this.#clicked.bind(this);
+    }
+
+    get #x(){
+        return this.#xValue;
+    }
+
+    set #x(value){
+        this.#xValue = value;
+        window.requestAnimationFrame(this.#render.bind(this))
+    }
+
+    #clicked(){
+     this.#x++;
+    }
+
+    #render(){
+        this.textContent = this.#x.toString();
+    }
+
+    connectedCallback(){
+        this.#render();
+    }
+}
+
+customElements.define('my-counter', Counter);
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="note.js" type="module"></script>
+    <link rel="stylesheet" href="note.css">
+    <title>Note App</title>
+  </head>
+  <body>
+    <!-- Top Menu Bar -->
+    <nav class="menu-bar">
+      <button id="createNewNote" class="menu-item">🗒</button> <!-- New note button -->
+      <button id="deleteNote" class="menu-item">🗑️</button>
+      <button id="otherAction" class="menu-item">⚙️</button>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="main-container">
+      <!-- Aside: List of Notes -->
+      <aside class="notes-list">
+        <div><p>Note One</p></div>
+        <div><p>Note Two</p></div>
+        <div><p>Note Three</p></div>
+      </aside>
+
+      <!-- Note Creation Form (Hidden by default) -->
+      <div id="createNoteForm" class="note-input-container hidden">
+        <input type="text" id="newNoteTitle" placeholder="Note title" />
+        <textarea id="newNoteContent" placeholder="Type your note here..."></textarea>
+        <button id="saveNewNote">Save Note</button>
+        <button id="cancelNewNote">Cancel</button>
+      </div>
+    </div>
+  </body>
+</html>
