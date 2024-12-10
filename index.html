@@ -1,204 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photo Gallery</title>
-    <style>
-      body {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      .main-container {
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .top-view {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      select {
-        width: 30px;
-      }
-      /* Media query for smaller screens */
-      @media screen and (max-width: 768px) {
-        .photo-card {
-          flex: 1 1 calc(50% - 10px); /* 2 items per row */
-        }
-      }
-
-      @media screen and (max-width: 480px) {
-        .photo-card {
-          flex: 1 1 100%; /* 1 item per row */
-        }
-      }
-
-      @media(min-resolution: 2dppx){
-        body {
-            font-size: 16px;
-        }
-      }
-      @media (prefers-color-scheme: dark) {
-  body {
-    background-color: black;
-    color: white;
-  }
-}
-    </style>
-  </head>
-  <body>
-    <main class="main-container">
-      <div class="top-view">
-        <h1>Cities To Visit</h1>
-        <div class="control-view">
-          <button id="forward-btn-view"><</button>
-          <select name="" id="select-options"></select>
-          <button id="backward-btn-view">></button>
-        </div>
-      </div>
-      <div id="photo-roll" class="bottom-view"></div>
-    </main>
-  </body>
-  <script src="gallery.js"></script>
-</html>
-
-<!-- 
-Responsive Design using Media Queries
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Grid Layout</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin:1rem;
+        }
 
-    header {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1em 0;
-    }
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      padding: 20px;
-    }
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap:15px;
+        }
+        
+        .nav-list > li {
+            display: inline;
+            font-weight: bold;
+            font-size: medium;
+        }
 
-    .box {
-      background-color: #f4f4f4;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid #ddd;
-      font-size: 18px;
-    }
+        .nav-list > li > a {
+            text-decoration: none;
+            padding: 5px 10px;
+            color: black;
+        }
 
-    @media (max-width: 1200px) {
-      .container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+        header > img {
+            width: 80px;
+            height: 80px;
+        }
 
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+        .sector-view {
+            width: 800px;
+            height: 800px;
+            background-color: rgb(22, 123, 22);
+            clip-path: ellipse(500px 510px at 100% 100%); /* Ellipse as the visible area */
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
 
-    @media (max-width: 480px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        p {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 0.5rem;
+        }
+
+        .hover-top-view {
+            display: flex;
+            margin: 5rem;
+            position: absolute;
+            justify-content: space-between;
+            background-color: transparent;
+            border: 2px solid purple;
+        }
+
+        .main-messages-view {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .starbucks-text-view {
+            color: rgb(22, 123, 22);
+            font-size: 5rem;
+            font-weight:bolder;
+        }
+
+        .lean-more-btn {
+            background-color: rgb(22, 123, 22);
+            color: white;
+            font-size: 1rem;
+            font-weight: normal;
+            width: 150px;
+            height: 40px;
+            border-radius: 20px;
+            border-width: 0;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            margin-top: 1rem;
+        }
+        
+        .starbucks-detail-msg {
+            font-size: 1.2rem;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .social-view {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10em;
+        }
+
+        .big-cups-img {
+            width: 100%;
+            height: 75%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .social-btn-view {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        .social-btn-view > img {
+            border: none;
+            background-color: transparent;
+            color: white;
+            width: 35px;
+            height: 35px;
+        }
+
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Responsive Grid Layout</h1>
-  </header>
-
-  <div class="container">
-    <div class="box">Box 1</div>
-    <div class="box">Box 2</div>
-    <div class="box">Box 3</div>
-    <div class="box">Box 4</div>
-    <div class="box">Box 5</div>
-    <div class="box">Box 6</div>
-    <div class="box">Box 7</div>
-    <div class="box">Box 8</div>
-  </div>
-</body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 1em 0;
-      }
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 20px;
-      }
-      .box {
-        flex: 1 1 calc(33.33% - 20px);
-        height: 200px;
-        background-color: #f4f4f4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      @media (max-width: 768px) {
-        .box {
-          flex: 1 1 calc(50% - 20px);
-        }
-      }
-      @media (max-width: 480px) {
-        .box {
-          flex: 1 1 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
     <header>
-      <h1>Responsive Design Example</h1>
+        <img src="https://raw.githubusercontent.com/farazc60/Project-Images/main/starbucks/logo.png" alt="">
+        <nav>
+            <ul class="nav-list">
+                <li><a href="">Home</a></li>
+                <li><a href="">Menu</a></li>
+                <li><a href="">What's New</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="container">
-      <div class="box">1</div>
-      <div class="box">2</div>
-      <div class="box">3</div>
-      <div class="box">4</div>
-      <div class="box">5</div>
-      <div class="box">6</div>
+    <div class="sector-view"></div>
+    <div class="hover-top-view">
+        <div class="main-messages-view">
+            <p>Its not just a coffee</p>
+            <p>Its <span class="starbucks-text-view">Starbucks</span></p>
+            <p class="starbucks-detail-msg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum maiores enim, hic non est animi aspernatur distinctio sint nesciunt. Nisi sunt delectus totam laborum distinctio eum beatae modi adipisci.</p>
+            <button class="lean-more-btn">learn More</button>
+        </div>
+        <img src="/images/img1.png" alt="" class="big-cups-img">
+        <div class="social-view">
+            <button class="social-btn-view"><img src="/images/facebook.png" alt=""></button>
+            <button class="social-btn-view"><img src="/images/instagram.png" alt=""></button>
+            <button class="social-btn-view"><img src="/images/twitter.png" alt=""></button>
+        </div>
     </div>
-  </body>
-</html> -->
+</body>
+</html>
